@@ -10,9 +10,9 @@ def get_db_connection_url():
         DB_CONFIG = {
             "host": os.getenv("DB_HOST", "localhost"),
             "port": os.getenv("DB_PORT", "5432"),
-            "database": os.getenv("DB_NAME", ""),
-            "user": os.getenv("DB_USER", ""),
-            "password": os.getenv("DB_PASSWORD", "")
+            "database": os.getenv("DB_NAME", "db_name"),
+            "user": os.getenv("DB_USER", "db_user"),
+            "password": os.getenv("DB_PASSWORD", "password")
         }
         
         for key, value in DB_CONFIG.items():
