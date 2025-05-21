@@ -70,6 +70,7 @@ Este projeto tem como objetivo construir um Data Warehouse da Agência Nacional 
 - Variáveis de ambiente configuradas em `.env`
 
 ### 2️⃣ Inicialização do Ambiente
+🧪 Utilizando Poetry (Execução Manual)
 ```bash
 # Clone o repositório
 git clone https://github.com/juniorsilvacc/projeto-dados-agencia-nacional-aviacao-civil.git
@@ -83,13 +84,25 @@ poetry install
 # Ative o ambiente virtual
 poetry shell
 ```
+
+🐳 Utilizando Docker (Execução Automatizada)
+Este projeto também pode ser executado dentro de um ambiente Dockerizado, ideal para manter consistência no ambiente e facilitar a configuração.
 ```bash
 # Crie um arquivo .env na raiz do projeto com as seguintes variáveis (exemplo):
-DB_HOST=localhost
+DB_HOST=db
 DB_PORT=5432
-DB_NAME=anac_dw
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
+DB_NAME=db-projeto-dados-anac
+DB_USER=postgres
+DB_PASSWORD=postgres
+
+# Vai reconstruir a imagem e mostrar os logs da execução. Quando o script main.py acabar, o container vai parar manualmente.
+docker-compose up --build
+
+# Para acompanhar os logs:
+docker-compose logs -f
+
+# Executar o pipeline manualmente
+docker-compose run --rm app python main.py
 ```
 
 ### 3️⃣ Executando o Pipeline Manualmente
@@ -125,15 +138,3 @@ streamlit run dashboard.py
 
 ### 📌 Contribuição
 Cícero Júnior (Engenheiro de Dados)
-
-
-
-
-
-
-
-
-
-
-
-
