@@ -95,13 +95,13 @@ DB_NAME=db-projeto-dados-anac
 DB_USER=postgres
 DB_PASSWORD=postgres
 
-# Vai reconstruir a imagem e mostrar os logs da execução. Quando o script main.py acabar, o container vai parar manualmente.
+# Vai reconstruir a imagem e mostrar os logs da execução. Quando o script main.py acabar, o container vai parar manualmente
 docker-compose up --build
 
-# Para acompanhar os logs:
+# Para acompanhar os logs
 docker-compose logs -f
 
-# Executar o pipeline manualmente
+# Executar o pipeline manualmente via docker
 docker-compose run --rm app python main.py
 ```
 
