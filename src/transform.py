@@ -36,13 +36,19 @@ def transform_data(df):
     
     # === 2. Conversão de datas ===
     
-    # Converter colunas de data/hora
+    # Converter colunas de data/hora com parsing automático
     date_cols = ['partida_prevista', 'partida_real', 'chegada_prevista', 'chegada_real']
     for coluna in date_cols:
-        df[coluna] = pd.to_datetime(df[coluna], format='%d/%m/%Y %H:%M', errors='coerce')
+        df[coluna] = (
+            df[coluna]
+            .astype(str)
+            .str.strip()
+            .replace('nan', None)
+        )
+        df[coluna] = pd.to_datetime(df[coluna], errors='coerce')  # parsing automático
 
-    df['referencia'] = pd.to_datetime(df['referencia'], format='%Y-%m-%d', errors='coerce')
-    
+    df['referencia'] = pd.to_datetime(df['referencia'], errors='coerce')
+
     # === 3. Cálculo de atrasos ===
     
     # Calcular atraso em minutos
@@ -68,7 +74,7 @@ def transform_data(df):
     }
     df = df.fillna(value=fillna_categorical)
     
-    # Tratar valores ausentes com "númerico"
+    # Tratar valores ausentes com "numérico"
     fillna_numeric = ['assentos', 'atraso_partida', 'atraso_chegada']
     for col in fillna_numeric:
         if col in df.columns:

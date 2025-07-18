@@ -36,6 +36,10 @@ def main ():
             log.write(f"{name_file}\n")
 
         print(f"✅ Salvo: {path_exit}")
+        
+        # Carrega no PostgreSQL (convertendo o nome para minúsculo)
+        # table_name = name_base.lower().replace(" ", "_")
+        load_data(df_processed, table_name='tb_voos_anac_2025')
 
 if __name__ == '__main__':
     main()
