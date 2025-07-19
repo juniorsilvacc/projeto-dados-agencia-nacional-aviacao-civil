@@ -1,0 +1,9 @@
+project:
+  name: projeto-dados-agencia-nacional-aviacao-civil
+
+deployments:
+  local:
+    executor: LocalExecutor
+    mounts:
+      - source: ./data/raw
+        target: /usr/local/airflow/data/raw
