@@ -1,11 +1,4 @@
 services:
-  volumes:
-      - ./data:/usr/local/airflow/data
-
-  scheduler:
-    volumes:
-      - ./data:/usr/local/airflow/data
-
   db:
     image: postgres:13-alpine
     environment:

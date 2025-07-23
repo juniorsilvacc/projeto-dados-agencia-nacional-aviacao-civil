@@ -5,5 +5,5 @@ deployments:
   local:
     executor: LocalExecutor
     mounts:
-      - source: ./data/raw
-        target: /usr/local/airflow/data/raw
+      - source: ./data
+        target: /usr/local/airflow/data
