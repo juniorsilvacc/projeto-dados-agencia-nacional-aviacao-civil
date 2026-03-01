@@ -136,8 +136,5 @@ pytest tests/
 streamlit run dashboard.py
 ```
 
-### 📌 Contribuição
-Cícero Júnior (Engenheiro de Dados)
-
-Linkedin: https://www.linkedin.com/in/juniiorsilvadev/ 
-
+### 👷 Autor
+[Linkedin](https://www.linkedin.com/in/juniiorsilvadev/) 
